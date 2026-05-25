@@ -1,0 +1,5 @@
+CV_model/
+*.keras
+.venv/
+__pycache__/
+.env
