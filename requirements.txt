@@ -8,3 +8,10 @@ langchain-core
 langchain-openai
 langgraph
 python-dotenv
+opencv-python
+langchain-pinecone
+pinecone
+pypdf
+langchain-huggingface
+rank_bm25
+sentence-transformers
