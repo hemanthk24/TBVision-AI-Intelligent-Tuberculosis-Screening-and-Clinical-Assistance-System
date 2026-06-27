@@ -1,18 +1,17 @@
 import tensorflow as tf
 from tensorflow.keras import layers
+from src.config.setting import MODEL_INPUT_SHAPE, IMG_SIZE
 from tensorflow.keras.applications import ResNet50
 
 def build_model():
     
-    input_shape = (224,224,3)
-    
     base_model = ResNet50(
         weights=None,
         include_top=False,
-        input_shape=input_shape    
+        input_shape=MODEL_INPUT_SHAPE   
     )
     
-    inputs = tf.keras.Input(shape=input_shape)
+    inputs = tf.keras.Input(shape=MODEL_INPUT_SHAPE)
     
     x = base_model(inputs, training=False)
 
