@@ -4,8 +4,12 @@ from pathlib import Path
 
 load_dotenv()
 
+
 # Base dir
 BASE_DIR = Path(__file__).resolve().parents[2]
+
+# data dir
+DATA_DIR = BASE_DIR / "data" / "109.pdf"
 
 # API Keys
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -37,3 +41,10 @@ GRADCAM_OUTPUT_DIR = BASE_DIR / "outputs" / "grad_cam_outputs"
 
 # LLM
 TEMPERATURE = 0
+
+# Retriever Search Kwargs
+SEARCH_KWARGS = {
+        "k":5,
+        'fetch_k':20,
+        "lambda_mult":0.5
+    }
