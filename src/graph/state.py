@@ -1,0 +1,22 @@
+from langgraph.graph import StateGraph
+from typing  import TypedDict
+from langchain_core.documents import Document
+
+# patient info
+class PatientInfo(TypedDict):
+    symptoms: dict
+    severity: dict
+    history: dict
+    
+# creating the State for our Workflow
+class DiagnosticState(TypedDict):
+    image_path: str
+    prediction: str
+    confidence: float
+    grad_cam_output: str
+    patient: PatientInfo
+    retrieved_docs: list[Document]
+    web_docs: list[str]
+    context: str
+    final_report: str
+

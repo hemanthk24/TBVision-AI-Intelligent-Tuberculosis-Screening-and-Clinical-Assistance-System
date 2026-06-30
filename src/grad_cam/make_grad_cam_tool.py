@@ -1,18 +1,14 @@
 import numpy as np
 from src.cv_model.resnet_model import build_model
 from src.cv_model.prediction import crop_center_region_np, apply_clahe_np
-from src.config.setting import TB_MODEL_WEIGHTS_PATH, IMG_SIZE
+from src.config.setting import IMG_SIZE
+from src.cv_model.resnet_model import cv_model
 import cv2
 import os
 from pathlib import Path
 from src.utils.logger import logger
 import tensorflow as tf
 from tensorflow.keras.applications.resnet50 import preprocess_input
-
-
-# loading model
-model = build_model()
-model.load_weights(TB_MODEL_WEIGHTS_PATH)
 
 
 def make_gradcam_heatmap(img_array, model, pred_index=None):
@@ -198,5 +194,6 @@ def gradcam_tool(image_path,model):
     
 if __name__ == "__main__":
     image_path = Path("test_images\\img_normal1.jpg")
+    model = cv_model()
     output = gradcam_tool(image_path=image_path,model=model)
     print("Grad_cam_output :",output)

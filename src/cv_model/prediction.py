@@ -3,12 +3,10 @@ from src.utils.logger import logger
 from tensorflow.keras.applications.resnet50 import preprocess_input
 import cv2
 from pathlib import Path
-from src.config.setting import IMG_SIZE, MODEL_INPUT_SHAPE, TB_MODEL_WEIGHTS_PATH
+from src.config.setting import IMG_SIZE, MODEL_INPUT_SHAPE
+from src.cv_model.resnet_model import cv_model
 import numpy as np
 
-# loading Model
-model = build_model()
-model.load_weights(TB_MODEL_WEIGHTS_PATH)
 
 def crop_center_region_np(image):
     h, w = image.shape[:2]
@@ -83,6 +81,7 @@ def predict_xray(model,image_path):
     
 if __name__ == "__main__":
     image_path = Path("test_images\\img_normal1.jpg")
+    model = cv_model()
     predicted = predict_xray(model=model,image_path=image_path)
     print("Prediction of the image :",predicted)
 

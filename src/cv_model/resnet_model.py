@@ -2,6 +2,9 @@ import tensorflow as tf
 from tensorflow.keras import layers
 from src.config.setting import MODEL_INPUT_SHAPE, IMG_SIZE
 from tensorflow.keras.applications import ResNet50
+from src.config.setting import TB_MODEL_WEIGHTS_PATH
+
+_model = None
 
 def build_model():
     
@@ -32,7 +35,13 @@ def build_model():
     return model
 
 
+def cv_model():
+    global _model
     
+    if _model is None:
+        _model = build_model()
+        _model.load_weights(TB_MODEL_WEIGHTS_PATH)
+    return _model
 
     
 

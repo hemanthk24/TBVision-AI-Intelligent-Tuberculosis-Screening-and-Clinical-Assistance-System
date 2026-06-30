@@ -42,9 +42,10 @@ GRADCAM_OUTPUT_DIR = BASE_DIR / "outputs" / "grad_cam_outputs"
 # LLM
 TEMPERATURE = 0
 
-# Retriever Search Kwargs
+# Retriever Search Kwargs and final_k
 SEARCH_KWARGS = {
         "k":5,
         'fetch_k':20,
         "lambda_mult":0.5
     }
+FINAL_CONTEXT_K = 5
