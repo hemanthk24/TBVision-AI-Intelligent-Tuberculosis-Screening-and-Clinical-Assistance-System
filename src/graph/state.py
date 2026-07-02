@@ -15,8 +15,11 @@ class DiagnosticState(TypedDict):
     confidence: float
     grad_cam_output: str
     patient: PatientInfo
+    retrieval_query: str
     retrieved_docs: list[Document]
-    web_docs: list[str]
-    context: str
+    web_docs: list[dict]
+    sufficient_info: bool
+    coverage_score: float
+    missing_info: list[str]
     final_report: str
 

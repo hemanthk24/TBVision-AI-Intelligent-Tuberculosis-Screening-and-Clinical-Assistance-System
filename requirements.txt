@@ -15,3 +15,4 @@ pypdf
 langchain-huggingface
 rank_bm25
 sentence-transformers
+langchain-tavily

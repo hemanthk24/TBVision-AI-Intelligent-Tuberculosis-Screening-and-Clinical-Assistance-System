@@ -33,8 +33,9 @@ def rag_node(state: DiagnosticState):
     • Prognosis and recommended follow-up
     """
    retriever = get_retriever()
-   docs = retriever.invoke(query)
+   docs = retriever.invoke(query)[:5]  # Retrieve top 5 relevant documents
    return {
+       'retrieval_query': query,
        'retrieved_docs':docs
    }
    
